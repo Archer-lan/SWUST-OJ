@@ -1,0 +1,50 @@
+#include<stdio.h>
+int main(){
+	int a,b,c;
+	scanf("%d%d%d",&a,&b,&c);
+	long long d=0;
+	for(int i=1;i<a;i++){
+		if(i%4==0&&i%100!=0||i%400==0){
+			d+=366;
+		}//ÅÐ¶ÏÈòÄê
+		else{
+			d+=365;
+		}
+	}
+	int y[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+	for(int i;i<b;i++){
+		if(i==2){
+			if(a%4==0&&a%100!=0||a%400==0){
+				d+=29;
+			}//ÅÐ¶ÏÈòÄê
+			else{
+				d+=28;
+			}
+		}
+		else{
+			d+=y[i];
+		}
+	}
+	d+=c;
+	if(d%7==0){
+		printf("Sunday\n");
+	}
+	else if(d%7==1){
+		printf("Monday\n");
+	}
+	else if(d%7==2){
+		printf("Tuesday\n");
+	}
+	else if(d%7==3){
+		printf("Wednesday\n");
+	}
+	else if(d%7==4){
+		printf("Thursday\n");
+	}
+	else if(d%7==5){
+		printf("Friday\n");
+	}
+	else{
+		printf("Saturday\n");
+	}
+}
